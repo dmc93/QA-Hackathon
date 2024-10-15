@@ -1,0 +1,35 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: api-gateway
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+  cloud:
+    gateway:
+      routes:
+        - id: ledger-service
+          uri: http://localhost:8084
+          predicates:
+            - Path=/ledger/**
+        - id: budget-service
+          uri: http://localhost:8083
+          predicates:
+            - Path=/budget/**
+        - id: user-service
+          uri: http://localhost:8082
+          predicates:
+            - Path=/user/**
+
+
+logging:
+  level:
+    com.netflix.discovery: DEBUG
+    org.springframework.cloud.netflix.eureka: DEBUG
+
