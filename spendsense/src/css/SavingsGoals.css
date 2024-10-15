@@ -1,0 +1,36 @@
+/* src/pages/SavingsGoals.css */
+
+/* Increase the height of progress bars for better visibility */
+.progress-bar {
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+  }
+  
+  /* Add some space and border radius to cards */
+  .card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  /* Styling for the card titles */
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  /* Add some spacing between the goals and other elements */
+  .progress-bar-container {
+    margin-bottom: 20px;
+  }
+  
+  /* Styling for form inputs and buttons */
+  .form-group label {
+    font-weight: bold;
+  }
+  

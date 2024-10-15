@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import BudgetManagementForm from '../components/BudgetManagementForm';
 
+
 const BudgetManagement = () => {
   const [budgets, setBudgets] = useState([
     // Example budgets for different months
@@ -14,13 +15,13 @@ const BudgetManagement = () => {
   const [selectedMonth, setSelectedMonth] = useState(''); // For selecting the month in edit
   const [selectedBudget, setSelectedBudget] = useState(''); // For selecting the budget category to edit
   const [months, setMonths] = useState([]);
-  
+
   // Get the current month and generate the next 12 months
   useEffect(() => {
     const generateNext12Months = () => {
       const monthList = [];
       const today = new Date();
-      
+
       const currentMonthName = today.toLocaleString('default', { month: 'long' });
       const currentMonthYear = `${currentMonthName} ${today.getFullYear()}`;
       setCurrentMonth(currentMonthYear); // Set the current month for tracking
@@ -73,15 +74,19 @@ const BudgetManagement = () => {
               {budgets
                 .filter((budget) => budget.month === currentMonth)
                 .map((budget, index) => (
-                  <div key={index} className="progress-bar-container">
+                  <div key={index} className="progress-bar-container mb-4">
                     <h5>{budget.category}</h5>
-                    <div className="progress">
+                    <div className="d-flex justify-content-between mb-1">
+                      <span>£{budget.spentAmount} spent</span> {/* Display spent amount on the left */}
+                      <span>Limit: £{budget.limit}</span> {/* Display limit on the right */}
+                    </div>
+                    <div className="progress" style={{ height: '30px' }}> {/* Increased height */}
                       <div
-                        className="progress-bar"
+                        className="progress-bar bg-primary"
                         role="progressbar"
                         style={{ width: `${(budget.spentAmount / budget.limit) * 100}%` }}
                       >
-                        £{budget.spentAmount} spent out of £{budget.limit}
+                        {/* No text inside the bar */}
                       </div>
                     </div>
                   </div>
@@ -160,7 +165,7 @@ const BudgetManagement = () => {
                     />
                   </div>
                   <button
-                    className="btn btn-success"
+                    className="btn btn-primary"
                     onClick={() => handleSaveBudget(selectedBudgetData)}
                   >
                     Save
