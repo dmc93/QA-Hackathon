@@ -1,0 +1,46 @@
+/* Header.css */
+
+/* Navbar styles */
+.custom-header {
+    background-color: #007bff; /* Primary color */
+    padding: 1rem 0;
+  }
+  
+  .navbar-brand .logo {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .navbar-nav .nav-link.custom-link {
+    color: #fff;
+    margin-left: 1.5rem;
+    font-size: 1rem;
+    transition: color 0.3s ease, background-color 0.3s ease;
+  }
+  
+  /* Hover effect for the navigation links */
+  .navbar-nav .nav-link.custom-link:hover {
+    color: #f8f9fa; /* Light text color */
+    background-color: #0056b3; /* Darker blue background on hover */
+    border-radius: 5px;
+    
+  }
+  
+  /* Navbar toggler (menu button) styles */
+  .navbar-toggler {
+    border-color: #fff;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  /* Hover effect for the menu button */
+  .navbar-toggler:hover {
+    background-color: #0056b3; /* Darker background on hover */
+    transform: scale(1.1); /* Slightly larger when hovered */
+  }
+  
+  /* Navbar toggler icon */
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  }
+  
