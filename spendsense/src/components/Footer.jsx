@@ -1,11 +1,12 @@
 // src/components/Footer.js
 import React from 'react';
+import '../css/Footer.css'; // Custom CSS for footer
 
 const Footer = () => {
   return (
-    <footer className="bg-light text-center text-lg-start">
-      <div className="container p-4">
-        <p className="text-muted">© 2024 SpendSense. All rights reserved.</p>
+    <footer className="custom-footer">
+      <div className="container">
+        <p>&copy; 2024 SpendSense. All rights reserved.</p>
       </div>
     </footer>
   );

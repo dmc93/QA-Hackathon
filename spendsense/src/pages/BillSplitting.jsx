@@ -4,7 +4,7 @@ import BillSplittingForm from '../components/BillSplittingForm'; // Import Bill 
 
 const BillSplitting = () => {
   return (
-    <div className="container">
+    <div className="page-content">
       <h2>Bill Splitting</h2>
       <BillSplittingForm />
     </div>

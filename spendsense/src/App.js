@@ -7,6 +7,7 @@ import Dashboard from './pages/Dashboard';
 import BillSplitting from './pages/BillSplitting';
 import BudgetManagement from './pages/BudgetManagement'; // Import Budget Management Page
 import Login from './pages/Login';
+import './css/Sitewide.css';
 
 function App() {
   return (

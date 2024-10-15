@@ -16,7 +16,7 @@ const Dashboard = () => {
   ];
 
   return (
-    <div className="container">
+    <div className="page-content">
       <div className="row">
         <div className="col-md-12">
           <h2>Welcome, User!</h2>
