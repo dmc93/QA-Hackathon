@@ -1,0 +1,5 @@
+com\hackathon\user_service\repository\UserRepository.class
+com\hackathon\user_service\UserServiceApplication.class
+com\hackathon\user_service\controller\UserController.class
+com\hackathon\user_service\entity\User.class
+SwaggerConfig.class
