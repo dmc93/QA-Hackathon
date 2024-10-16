@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9dbc05f0-c0eb-494e-a323-711777ff8abb" name="Changes" comment="modular version pushed" />
+    <list default="true" id="9dbc05f0-c0eb-494e-a323-711777ff8abb" name="Changes" comment="modular version pushed">
+      <change afterPath="$PROJECT_DIR$/user-service/user-service/src/main/java/com/hackathon/user_service/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget-service/src/main/java/com/hackathon/budget_service/controller/BudgetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/budget-service/src/main/java/com/hackathon/budget_service/controller/BudgetController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ledger-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ledger-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/hackathon/user_service/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/hackathon/user_service/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/user-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/user-service/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/user-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/user-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/user-service/src/main/java/com/hackathon/user_service/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/user-service/src/main/java/com/hackathon/user_service/entity/User.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,12 +36,12 @@
     &quot;assignee&quot;: &quot;renniea90&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/dmc93/QA-Hackathon.git",
-    "accountId": "e72ab188-6f71-4410-b2f5-a15592fa0d09"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/dmc93/QA-Hackathon.git&quot;,
+    &quot;accountId&quot;: &quot;e72ab188-6f71-4410-b2f5-a15592fa0d09&quot;
   }
-}]]></component>
+}</component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -48,17 +57,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.SpendsenseApplication.executor": "Run",
-    "JUnit.All in spendsense.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/User/Desktop/spendsense/user-service",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.SpendsenseApplication.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in spendsense.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Andrew&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Desktop/spendsense/user-service&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.hackathon.spendsense" />

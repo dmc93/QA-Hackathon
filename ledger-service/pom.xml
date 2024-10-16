@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.hackathon</groupId>
-	<artifactId>budget-service</artifactId>
+	<artifactId>user-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>budget-service</name>
-	<description>budget-service for SpendSense</description>
+	<name>user-service</name>
+	<description>user-service for SpendSense</description>
 
 	<properties>
 		<java.version>17</java.version>
