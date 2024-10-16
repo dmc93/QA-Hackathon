@@ -1,11 +1,10 @@
 // src/pages/SavingsGoals.js
 import React, { useState } from 'react';
-import SavingsGoalsForm from '../components/SavingsGoalsForm'; // Component for adding savings goals
-import '../css/SavingsGoals.css'; // Add custom styles
+import SavingsGoalsForm from '../components/SavingsGoalsForm';
+import '../css/SavingsGoals.css'; // Custom styles for savings goals
 
 const SavingsGoals = () => {
   const [goals, setGoals] = useState([
-    // Example ongoing goals
     { category: 'Holiday', savedAmount: 500, goalAmount: 2000 },
     { category: 'Emergency Fund', savedAmount: 300, goalAmount: 1000 },
   ]);
@@ -44,7 +43,7 @@ const SavingsGoals = () => {
                     </div>
                     <div className="progress" style={{ height: '30px' }}>
                       <div
-                        className="progress-bar bg-primary" // Changed color to blue
+                        className="progress-bar bg-primary"
                         role="progressbar"
                         style={{ width: `${(goal.savedAmount / goal.goalAmount) * 100}%` }}
                       >
@@ -111,7 +110,7 @@ const SavingsGoals = () => {
                     />
                   </div>
                   <button
-                    className="btn btn-primary" // Changed button color to match theme
+                    className="btn btn-primary"
                     onClick={() => handleSaveGoal(selectedGoal)}
                   >
                     Save

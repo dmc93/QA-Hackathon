@@ -1,7 +1,7 @@
 // src/pages/BudgetManagement.js
 import React, { useState, useEffect } from 'react';
 import BudgetManagementForm from '../components/BudgetManagementForm';
-
+import '../css/BudgetManagement.css'; // Custom styles for Budget Management
 
 const BudgetManagement = () => {
   const [budgets, setBudgets] = useState([

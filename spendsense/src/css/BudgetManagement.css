@@ -1,34 +1,4 @@
-/* Reset unwanted global padding and margin */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f6f9; /* Light background */
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Page content container (excluding the header) */
-  .page-content {
-    max-width: 1200px; /* Set a responsive max width */
-    margin: 0 auto;
-    padding: 2rem; /* Add padding inside only for page content */
-    padding-top: 3rem; /* Add space below the header */
-  }
-  
-  /* Global h2 styling */
-  h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: #333;
-  }
-  
-  /* Global link styling */
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  /* Card spacing */
+/* Card spacing */
 .card {
     margin-bottom: 20px; /* Adds spacing between cards */
     padding: 20px; /* Adds padding inside the card */
@@ -70,5 +40,4 @@ body {
   .card-body {
     padding: 20px;
   }
-  
   
