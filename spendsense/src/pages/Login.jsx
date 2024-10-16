@@ -1,40 +1,29 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Ensure this is imported from 'react-router-dom'
-import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { loginUser } from '../api';
+import { useAuth } from '../AuthContext'; // Import useAuth
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const navigate = useNavigate(); // Ensure useNavigate is being used instead of useHistory
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+    const { login } = useAuth(); // Get login method from context
 
-//   const handleLogin = async (e) => {
-//     e.preventDefault();
-//     try {
-//       const response = await axios.post('/api/login', { email, password });
-//       if (response.data.success) {
-//         navigate('/dashboard'); // Navigate after successful login
-//       }
-//     } catch (error) {
-//       console.error('Login failed', error);
-//     }
-//   };
+    const handleLogin = async (e) => {
+        e.preventDefault();
 
-const handleLogin = async (e) => {
-    e.preventDefault();
-    
-    // Hardcoded credentials
-    const hardcodedEmail = "admin@spendsense.co.uk";
-    const hardcodedPassword = "password";
-  
-    // Check if the entered credentials match the hardcoded ones
-    if (email === hardcodedEmail && password === hardcodedPassword) {
-      // On successful login, redirect to dashboard
-      navigate('/dashboard');
-    } else {
-      alert("Invalid login credentials.");
-    }
-  };
-  
+        try {
+            const response = await loginUser(email, password);
+            const { token } = response; // Extract token from response
+            localStorage.setItem('jwtToken', token); // Store token in local storage
+            login(token); // Update authentication state
+            navigate('/dashboard'); // Redirect to dashboard
+        } catch (error) {
+            console.error('Login failed', error);
+            alert('Invalid login credentials.');
+        }
+    };
+
 
   return (
     <div className="container">

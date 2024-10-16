@@ -13,6 +13,10 @@ public class Ledger {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    private Long userId; // Add this field to associate the ledger entry with a user
+
+    private String description;
     private String category;
     private Double amount;
     private LocalDateTime date;

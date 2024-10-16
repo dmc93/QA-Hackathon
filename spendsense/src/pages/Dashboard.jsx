@@ -1,19 +1,30 @@
-// src/pages/Dashboard.js
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import BudgetOverview from '../components/BudgetOverview';
 import RecentTransactions from '../components/RecentTransactions';
 import SpendingChart from '../components/SpendingChart';
+import { fetchTransactions } from '../api'; // Import the fetch function
 
 const Dashboard = () => {
-  const budgets = [
+  const [budgets, setBudgets] = useState([
     { category: 'Groceries', spentAmount: 150, limit: 300 },
     { category: 'Entertainment', spentAmount: 100, limit: 200 },
-  ];
+  ]);
 
-  const transactions = [
-    { date: '12/10/2024', description: 'Groceries', amount: 50 },
-    { date: '10/10/2024', description: 'Utility Bill', amount: 100 },
-  ];
+  const [transactions, setTransactions] = useState([]);
+  const userId = 1; // Replace with actual user ID from login or state management
+
+  useEffect(() => {
+    const loadTransactions = async () => {
+      try {
+        const data = await fetchTransactions(userId); // Fetch transactions for the logged-in user
+        setTransactions(data); // Update the state with fetched transactions
+      } catch (error) {
+        console.error('Failed to load transactions:', error);
+      }
+    };
+
+    loadTransactions();
+  }, [userId]); // Run this effect when userId changes
 
   return (
     <div className="page-content">
@@ -29,7 +40,7 @@ const Dashboard = () => {
         <BudgetOverview budgets={budgets} />
 
         {/* Recent Transactions */}
-        <RecentTransactions transactions={transactions} />
+        <RecentTransactions transactions={transactions} /> {/* Pass fetched transactions */}
       </div>
 
       <div className="row mt-4">

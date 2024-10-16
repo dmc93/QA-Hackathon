@@ -1,4 +1,4 @@
-package com.hackathon.ledger_service.config;
+package com.hackathon.user_service.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,7 +13,7 @@ public class CorsConfig {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/api/**") // Apply CORS to all API endpoints under /api
+                registry.addMapping("/**") // Apply CORS to all API endpoints under /api
                         .allowedOrigins("http://localhost:3000") // Allow React frontend running on port 3000
                         .allowedMethods("GET", "POST", "PUT", "DELETE") // Allow these HTTP methods
                         .allowedHeaders("*") // Allow all headers

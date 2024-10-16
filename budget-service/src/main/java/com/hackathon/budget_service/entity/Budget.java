@@ -3,6 +3,9 @@ package com.hackathon.budget_service.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import java.time.YearMonth;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -12,9 +15,11 @@ public class Budget {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true)
-    private String category;
+    private Long userId; // Add this field to associate the budget with a user
 
+    private String category;
+    private YearMonth budgetMonth; // Year and month for the budget
     private Double budgetLimit;
     private Double spentAmount = 0.0; // Default value
 }
+

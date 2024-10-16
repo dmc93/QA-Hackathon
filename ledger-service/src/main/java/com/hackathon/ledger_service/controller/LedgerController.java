@@ -15,11 +15,20 @@ public class LedgerController {
     @Autowired
     private LedgerRepository ledgerRepository;
 
+    // Add a new ledger (transaction) with userId
     @PostMapping
     public ResponseEntity<Ledger> addLedger(@RequestBody Ledger ledger) {
         return ResponseEntity.ok(ledgerRepository.save(ledger));
     }
 
+    // Get all ledgers (transactions) for a specific userId
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<Ledger>> getLedgersByUserId(@PathVariable Long userId) {
+        List<Ledger> userLedgers = ledgerRepository.findByUserId(userId);
+        return ResponseEntity.ok(userLedgers);
+    }
+
+    // Get all ledgers (for all users)
     @GetMapping
     public ResponseEntity<List<Ledger>> getAllLedgers() {
         return ResponseEntity.ok(ledgerRepository.findAll());
