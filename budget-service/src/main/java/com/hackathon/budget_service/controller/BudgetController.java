@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/budgets")
-@CrossOrigin(origins = "http://localhost:3000") //Allows requests from the frontend
+@CrossOrigin(origins = "*") //Allows requests from all origins
 public class BudgetController {
 
     @Autowired

@@ -5,14 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9dbc05f0-c0eb-494e-a323-711777ff8abb" name="Changes" comment="modular version pushed">
-      <change afterPath="$PROJECT_DIR$/user-service/user-service/src/main/java/com/hackathon/user_service/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/hackathon/spendsense/api_gateway/CorsConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/com/hackathon/spendsense/api_gateway/ApiGatewayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/hackathon/spendsense/api_gateway/ApiGatewayApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/budget-service/src/main/java/com/hackathon/budget_service/controller/BudgetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/budget-service/src/main/java/com/hackathon/budget_service/controller/BudgetController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ledger-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ledger-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/hackathon/user_service/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/hackathon/user_service/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ledger-service/src/main/java/com/hackathon/ledger_service/controller/LedgerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ledger-service/src/main/java/com/hackathon/ledger_service/controller/LedgerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/user-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/user-service/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/user-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/user-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/user-service/src/main/java/com/hackathon/user_service/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/user-service/src/main/java/com/hackathon/user_service/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/user-service/src/main/java/com/hackathon/user_service/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/user-service/src/main/java/com/hackathon/user_service/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/user-service/src/main/java/com/hackathon/user_service/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/user-service/src/main/java/com/hackathon/user_service/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/user-service/target/classes/com/hackathon/user_service/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/user-service/target/classes/com/hackathon/user_service/controller/UserController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

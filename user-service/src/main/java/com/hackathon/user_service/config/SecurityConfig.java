@@ -52,7 +52,7 @@ public class SecurityConfig {
                 )
                 // Configure logout functionality
                 .logout(logout -> logout.permitAll());
-        
+
         return http.build();
     }
 }

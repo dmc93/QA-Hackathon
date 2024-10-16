@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*") //Allows requests from all origins
 @RestController
 @RequestMapping("/users")
 public class UserController {
