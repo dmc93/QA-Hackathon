@@ -12,6 +12,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -69,9 +70,15 @@ public class UserController {
                     new UsernamePasswordAuthenticationToken(authRequest.getEmail(), authRequest.getPassword())
             );
 
+            // Fetch the user by email to get the user ID
+            User user = userRepository.findByEmail(authRequest.getEmail())
+                    .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+
             // Generate JWT token upon successful authentication
             String token = jwtUtil.generateToken(authRequest.getEmail());
-            return ResponseEntity.ok(new AuthResponse(token));
+
+            // Return the JWT token and user ID to the client
+            return ResponseEntity.ok(new AuthResponse(token, user.getId())); // Include user ID in the response
         } catch (AuthenticationException e) {
             System.out.println("Authentication failed: " + e.getMessage()); // Log the error message
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Invalid credentials");
@@ -81,6 +88,7 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred during login");
         }
     }
+
 
 
 

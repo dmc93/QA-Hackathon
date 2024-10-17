@@ -7,6 +7,7 @@ import BillSplitting from './pages/BillSplitting';
 import BudgetManagement from './pages/BudgetManagement';
 import SavingsGoals from './pages/SavingsGoals';
 import Transactions from './pages/Transactions';
+import Register from './pages/Register';
 import Login from './pages/Login';
 import { useAuth } from './AuthContext'; // Make sure this hook returns the authentication state
 import './css/Sitewide.css';
@@ -22,7 +23,7 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/" element={isAuthenticated ? <Navigate to="/dashboard" /> : <Navigate to="/login" />} />
-          
+          <Route path="/register" element={<Register />} />
           {/* Protect these routes */}
           <Route path="/dashboard" element={isAuthenticated ? <Dashboard /> : <Navigate to="/login" />} />
           <Route path="/bill-splitting" element={isAuthenticated ? <BillSplitting /> : <Navigate to="/login" />} />

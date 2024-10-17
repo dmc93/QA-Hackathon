@@ -11,7 +11,7 @@ export const loginUser = async (email, password) => {
       email,
       password,
     });
-    return response.data; // Return the response data (including token)
+    return response.data; // Return the response data (including token and user ID)
   } catch (error) {
     throw error; // Propagate the error to be handled in the component
   }
@@ -19,16 +19,17 @@ export const loginUser = async (email, password) => {
 
 // Fetch transactions for a specific userId
 export const fetchTransactions = async (userId) => {
-  try {
-    const token = localStorage.getItem('jwtToken'); // Get the token from local storage
-    const response = await axios.get(`${LEDGER_BASE_URL}/user/${userId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`, // Include token in headers
-      },
-    });
-    return response.data;
-  } catch (error) {
-    console.error('Error fetching transactions:', error);
-    throw error;
-  }
+    try {
+        const token = localStorage.getItem('jwtToken'); // Get the token from local storage
+        const response = await axios.get(`${LEDGER_BASE_URL}/user/${userId}`, {
+            headers: {
+                Authorization: `Bearer ${token}`, // Include token in headers
+            },
+        });
+        return response.data; // Return the fetched transactions
+    } catch (error) {
+        console.error('Error fetching transactions:', error);
+        throw error; // Propagate the error to be handled in the component
+    }
 };
+

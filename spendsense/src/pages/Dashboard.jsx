@@ -3,6 +3,7 @@ import BudgetOverview from '../components/BudgetOverview';
 import RecentTransactions from '../components/RecentTransactions';
 import SpendingChart from '../components/SpendingChart';
 import { fetchTransactions } from '../api'; // Import the fetch function
+import { useAuth } from '../AuthContext'; // Import useAuth for user info
 
 const Dashboard = () => {
   const [budgets, setBudgets] = useState([
@@ -11,7 +12,7 @@ const Dashboard = () => {
   ]);
 
   const [transactions, setTransactions] = useState([]);
-  const userId = 1; // Replace with actual user ID from login or state management
+  const { userId } = useAuth(); // Access the user ID from context
 
   useEffect(() => {
     const loadTransactions = async () => {
@@ -23,7 +24,9 @@ const Dashboard = () => {
       }
     };
 
-    loadTransactions();
+    if (userId) {
+      loadTransactions(); // Only load transactions if userId is available
+    }
   }, [userId]); // Run this effect when userId changes
 
   return (
@@ -36,17 +39,36 @@ const Dashboard = () => {
       </div>
 
       <div className="row">
-        {/* Budget Overview */}
-        <BudgetOverview budgets={budgets} />
+        {/* Budget Overview Card */}
+        <div className="col-md-6">
+          <div className="card mb-4">
+            <div className="card-body">
+              <h4>Budget Overview</h4>
+              <BudgetOverview budgets={budgets} />
+            </div>
+          </div>
+        </div>
 
-        {/* Recent Transactions */}
-        <RecentTransactions transactions={transactions} /> {/* Pass fetched transactions */}
+        {/* Recent Transactions Card */}
+        <div className="col-md-6">
+          <div className="card mb-4">
+            <div className="card-body">
+              <h4>Recent Transactions</h4>
+              <RecentTransactions transactions={transactions} />
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="row mt-4">
-        {/* Spending Chart */}
+        {/* Spending Chart Card */}
         <div className="col-md-12">
-          <SpendingChart />
+          <div className="card">
+            <div className="card-body">
+              <h4>Spending and Income Trends</h4>
+              <SpendingChart transactions={transactions} /> {/* Pass transactions to SpendingChart */}
+            </div>
+          </div>
         </div>
       </div>
     </div>

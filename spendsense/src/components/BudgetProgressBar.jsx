@@ -2,16 +2,22 @@
 import React from 'react';
 
 const BudgetProgressBar = ({ category, spentAmount, budgetLimit }) => {
+  const progressPercentage = (spentAmount / budgetLimit) * 100;
+
   return (
-    <div className="mb-4">
+    <div className="mb-3">
       <h5>{category}</h5>
-      <div className="progress">
+      <div className="d-flex justify-content-between mb-1">
+        <span>£{spentAmount} spent</span>
+        <span>Limit: £{budgetLimit}</span>
+      </div>
+      <div className="progress" style={{ height: '30px' }}>
         <div
-          className="progress-bar"
+          className="progress-bar bg-primary"
           role="progressbar"
-          style={{ width: `${(spentAmount / budgetLimit) * 100}%` }}
+          style={{ width: `${progressPercentage}%` }}
         >
-          £{spentAmount} spent out of £{budgetLimit}
+          {/* You can display the percentage or value inside the bar if needed */}
         </div>
       </div>
     </div>
