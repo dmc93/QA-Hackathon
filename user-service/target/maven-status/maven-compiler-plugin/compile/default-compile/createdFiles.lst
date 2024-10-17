@@ -1,4 +1,9 @@
+com\hackathon\user_service\config\SwaggerConfig.class
+com\hackathon\user_service\security\JwtAuthenticationFilter.class
 com\hackathon\user_service\repository\UserRepository.class
 com\hackathon\user_service\UserServiceApplication.class
 com\hackathon\user_service\controller\UserController.class
+com\hackathon\user_service\service\CustomUserDetailsService.class
+com\hackathon\user_service\config\SecurityConfig.class
 com\hackathon\user_service\entity\User.class
+com\hackathon\user_service\security\JwtUtil.class
