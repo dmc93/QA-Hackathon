@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="102180e0-8a02-45d1-947e-ead4ee731a1c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../spendsense/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../spendsense/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spendsense/src/AuthContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/../spendsense/src/AuthContext.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spendsense/src/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/../spendsense/src/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spendsense/src/components/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../spendsense/src/components/Header.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../spendsense/src/components/RecentTransactions.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../spendsense/src/components/RecentTransactions.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spendsense/src/pages/Dashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../spendsense/src/pages/Dashboard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spendsense/src/pages/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../spendsense/src/pages/Login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spendsense/src/pages/Transactions.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../spendsense/src/pages/Transactions.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

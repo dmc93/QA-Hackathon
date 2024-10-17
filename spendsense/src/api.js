@@ -33,3 +33,20 @@ export const fetchTransactions = async (userId) => {
     }
 };
 
+// Fetch budgets for a specific userId
+export const fetchBudgets = async (userId) => {
+    try {
+        const token = localStorage.getItem('jwtToken'); // Get the token from local storage
+        const response = await axios.get(`${API_BASE_URL}/budgets/user/${userId}`, {
+            headers: {
+                Authorization: `Bearer ${token}`, // Include token in headers
+            },
+        });
+        return response.data; // Return the fetched budgets
+    } catch (error) {
+        console.error('Error fetching budgets:', error);
+        throw error; // Propagate the error to be handled in the component
+    }
+};
+
+
