@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="102180e0-8a02-45d1-947e-ead4ee731a1c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../budget-service/src/main/java/com/hackathon/budget_service/config/CorsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../budget-service/src/main/java/com/hackathon/budget_service/config/CorsConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../budget-service/src/main/java/com/hackathon/budget_service/controller/BudgetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../budget-service/src/main/java/com/hackathon/budget_service/controller/BudgetController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../budget-service/src/main/java/com/hackathon/budget_service/entity/Budget.java" beforeDir="false" afterPath="$PROJECT_DIR$/../budget-service/src/main/java/com/hackathon/budget_service/entity/Budget.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spendsense/src/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/../spendsense/src/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spendsense/src/components/BudgetManagementForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../spendsense/src/components/BudgetManagementForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spendsense/src/pages/BudgetManagement.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../spendsense/src/pages/BudgetManagement.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spendsense/src/AuthContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/../spendsense/src/AuthContext.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../spendsense/src/pages/Dashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../spendsense/src/pages/Dashboard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spendsense/src/pages/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../spendsense/src/pages/Login.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

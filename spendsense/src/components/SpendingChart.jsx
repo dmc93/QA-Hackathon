@@ -17,7 +17,7 @@ const SpendingChart = ({ transactions }) => {
 
   // Populate monthlyData with categories and amounts from transactions
   transactions.forEach(transaction => {
-    const month = new Date(transaction.date).toLocaleString('default', { month: 'long' });
+    const month = new Date(transaction.date).toLocaleString('default', { month: 'long', year: 'numeric' }); // Include year for proper grouping
     const category = transaction.category;
 
     if (!monthlyData[month]) {
@@ -47,19 +47,28 @@ const SpendingChart = ({ transactions }) => {
 
   // Prepare data for chart
   const chartData = {
-    labels: Object.keys(monthlyData),
+    labels: Object.keys(monthlyData).reverse(), // Reverse to show older months on the left
     datasets: categories.map(category => ({
       label: category,
-      data: Object.keys(monthlyData).map(month => monthlyData[month].expenses[category] || 0),
+      data: Object.keys(monthlyData).reverse().map(month => monthlyData[month].expenses[category] || 0),
       backgroundColor: categoryColors[category] || 'rgba(200, 200, 200, 0.6)', // Default color if not found
       stack: 'expenses', // Stack expenses together
     })).concat([{
       label: 'Income',
-      data: Object.keys(monthlyData).map(month => monthlyData[month].income || 0),
+      data: Object.keys(monthlyData).reverse().map(month => monthlyData[month].income || 0),
       backgroundColor: 'rgba(75, 192, 192, 0.2)',
       stack: 'income', // Separate stack for income
     }]),
   };
+
+  // Get the maximum expense/income value for the y-axis buffer
+  const maxExpense = Math.max(
+    ...Object.keys(monthlyData).map(month =>
+      Math.max(...Object.values(monthlyData[month].expenses))
+    )
+  );
+  const maxIncome = Math.max(...Object.keys(monthlyData).map(month => monthlyData[month].income));
+  const yAxisMax = Math.max(maxExpense, maxIncome) + 500; // Add buffer of 100 to the maximum
 
   const chartOptions = {
     plugins: {
@@ -82,7 +91,8 @@ const SpendingChart = ({ transactions }) => {
       y: {
         beginAtZero: true,
         stacked: true, // Stacking enabled on y-axis
-        min: Math.min(0, ...Object.keys(monthlyData).map(month => monthlyData[month].income + Math.min(...Object.values(monthlyData[month].expenses)))), // Minimum value to accommodate negatives
+        min: 0, // Ensure minimum is 0
+        max: yAxisMax, // Set the maximum value with buffer
       },
     },
   };

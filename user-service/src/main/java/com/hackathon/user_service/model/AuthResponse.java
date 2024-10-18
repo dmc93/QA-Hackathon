@@ -3,10 +3,13 @@ package com.hackathon.user_service.model;
 public class AuthResponse {
     private String token;
     private Long userId; // Store user ID as Long
+    private String userName; // Add userName field
 
-    public AuthResponse(String token, Long userId) { // Constructor with String and Long parameters
+    // Constructor with String, Long, and String parameters
+    public AuthResponse(String token, Long userId, String userName) {
         this.token = token;
         this.userId = userId; // Initialize userId
+        this.userName = userName; // Initialize userName
     }
 
     public String getToken() {
@@ -16,5 +19,8 @@ public class AuthResponse {
     public Long getUserId() {
         return userId; // Getter for userId
     }
-}
 
+    public String getUserName() {
+        return userName; // Getter for userName
+    }
+}

@@ -1,4 +1,3 @@
-// src/pages/Login.js
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { loginUser } from '../api';
@@ -15,17 +14,15 @@ const Login = () => {
   
       try {
           const response = await loginUser(email, password);
-          const { token, userId } = response; // Extract token and user ID from response
+          const { token, userId, userName } = response; // Extract token, userId, and userName from response
           localStorage.setItem('jwtToken', token); // Store token in local storage
-          login(token, userId); // Update authentication state
+          login(token, userId, userName); // Update authentication state with userName
           navigate('/dashboard'); // Redirect to dashboard
       } catch (error) {
           console.error('Login failed', error);
           alert('Invalid login credentials.');
       }
   };
-  
-  
 
     return (
         <div className="container">

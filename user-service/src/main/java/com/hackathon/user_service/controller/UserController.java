@@ -63,31 +63,32 @@ public class UserController {
     // Login user
     @PostMapping("/login")
     public ResponseEntity<?> loginUser(@RequestBody AuthRequest authRequest) {
-        System.out.println("Login attempt for: " + authRequest.getEmail()); // Log the email
+        System.out.println("Login attempt for: " + authRequest.getEmail());
         try {
             // Authenticate the user using the provided credentials
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(authRequest.getEmail(), authRequest.getPassword())
             );
 
-            // Fetch the user by email to get the user ID
+            // Fetch the user by email to get the user ID and user name
             User user = userRepository.findByEmail(authRequest.getEmail())
                     .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
             // Generate JWT token upon successful authentication
             String token = jwtUtil.generateToken(authRequest.getEmail());
 
-            // Return the JWT token and user ID to the client
-            return ResponseEntity.ok(new AuthResponse(token, user.getId())); // Include user ID in the response
+            // Return the JWT token, user ID, and user name to the client
+            return ResponseEntity.ok(new AuthResponse(token, user.getId(), user.getName())); // Include userName
         } catch (AuthenticationException e) {
-            System.out.println("Authentication failed: " + e.getMessage()); // Log the error message
+            System.out.println("Authentication failed: " + e.getMessage());
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Invalid credentials");
         } catch (Exception e) {
-            System.out.println("An error occurred: " + e.getMessage()); // Log any other exceptions
-            e.printStackTrace(); // Print the stack trace for debugging
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred during login");
         }
     }
+
 
 
 
