@@ -1,73 +1,87 @@
-// src/components/BudgetManagementForm.js
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
-const BudgetManagementForm = ({ addBudget }) => {
-  const [category, setCategory] = useState('');
-  const [limit, setLimit] = useState('');
-  const [months, setMonths] = useState([]);
+const BudgetManagementForm = ({ addBudget, existingBudgets }) => {
+    const [category, setCategory] = useState('');
+    const [budgetLimit, setBudgetLimit] = useState('');
+    const [budgetMonth, setBudgetMonth] = useState('');
 
-  // Generate the next 12 months dynamically
-  useEffect(() => {
-    const generateNext12Months = () => {
-      const monthList = [];
-      const today = new Date();
+    const handleSubmit = (e) => {
+        e.preventDefault();
 
-      for (let i = 0; i < 12; i++) {
-        const futureMonth = new Date(today.getFullYear(), today.getMonth() + i);
-        const monthName = futureMonth.toLocaleString('default', { month: 'long' });
-        const monthYear = `${monthName} ${futureMonth.getFullYear()}`;
-        monthList.push(monthYear);
-      }
-      setMonths(monthList);
+        // Validate if the budget already exists for the selected month
+        const budgetExists = existingBudgets.some(budget => 
+            budget.category === category && budget.budgetMonth === budgetMonth
+        );
+
+        if (budgetExists) {
+            alert('This budget already exists for the selected month.');
+            return;
+        }
+
+        // Convert the selected month to YYYY-MM format
+        const monthParts = budgetMonth.split(' '); // Split "October 2024" into ["October", "2024"]
+        const monthNumber = new Date(Date.parse(monthParts[0] + " 1, " + monthParts[1])).getMonth() + 1; // Get month number (0-11) and add 1
+        const formattedBudgetMonth = `${monthParts[1]}-${monthNumber.toString().padStart(2, '0')}`; // Format to "YYYY-MM"
+
+        const newBudget = {
+            category,
+            budgetLimit: parseFloat(budgetLimit),
+            budgetMonth: formattedBudgetMonth, // Set the formatted month
+            spentAmount: 0 // Default value
+        };
+
+        addBudget(newBudget); // Call the function to add the new budget
+        setCategory('');
+        setBudgetLimit('');
+        setBudgetMonth('');
     };
 
-    generateNext12Months();
-  }, []);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // Store the budget for each of the next 12 months when created
-    const newBudgets = months.map((month) => ({
-      category,
-      limit: parseFloat(limit),
-      month,
-    }));
-
-    addBudget(newBudgets); // Pass the array of budgets for all 12 months to the parent
-
-    // Reset the form
-    setCategory('');
-    setLimit('');
-  };
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <div className="form-group">
-        <label>Budget Category</label>
-        <input
-          type="text"
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-          className="form-control"
-          placeholder="e.g., Groceries, Entertainment"
-          required
-        />
-      </div>
-      <div className="form-group">
-        <label>Budget Limit (£)</label>
-        <input
-          type="number"
-          value={limit}
-          onChange={(e) => setLimit(e.target.value)}
-          className="form-control"
-          placeholder="Enter budget limit"
-          required
-        />
-      </div>
-      <button type="submit" className="btn btn-primary">Add Budget for Next 12 Months</button>
-    </form>
-  );
+    return (
+        <form onSubmit={handleSubmit}>
+            <div className="form-group">
+                <label>Budget Category</label>
+                <input
+                    type="text"
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}
+                    className="form-control"
+                    placeholder="e.g., Groceries, Entertainment"
+                    required
+                />
+            </div>
+            <div className="form-group">
+                <label>Budget Limit (£)</label>
+                <input
+                    type="number"
+                    value={budgetLimit}
+                    onChange={(e) => setBudgetLimit(e.target.value)}
+                    className="form-control"
+                    placeholder="Enter budget limit"
+                    required
+                />
+            </div>
+            <div className="form-group">
+                <label>Budget Month</label>
+                <select
+                    value={budgetMonth}
+                    onChange={(e) => setBudgetMonth(e.target.value)}
+                    className="form-control"
+                    required
+                >
+                    <option value="">Select Month</option>
+                    {Array.from({ length: 12 }, (_, i) => {
+                        const date = new Date();
+                        date.setMonth(date.getMonth() + i);
+                        const monthYear = date.toLocaleString('default', { month: 'long' }) + ' ' + date.getFullYear(); // Display as "October 2024"
+                        return (
+                            <option key={i} value={monthYear}>{monthYear}</option>
+                        );
+                    })}
+                </select>
+            </div>
+            <button type="submit" className="btn btn-primary">Add Budget</button>
+        </form>
+    );
 };
 
 export default BudgetManagementForm;

@@ -10,16 +10,22 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @Setter
+@Table(uniqueConstraints = {@UniqueConstraint(columnNames = {"userId", "category", "budgetMonth"})}) // Composite unique constraint
 public class Budget {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long userId; // Add this field to associate the budget with a user
+    private Long userId; // To associate the budget with a user
 
     private String category;
-    private YearMonth budgetMonth; // Year and month for the budget
+
+    @Column(length = 7) // For storing YYYY-MM format
+    private String budgetMonth; // Change from YearMonth if necessary
+
     private Double budgetLimit;
-    private Double spentAmount = 0.0; // Default value
+
+    private Double spentAmount = 0.0; // Default to 0
 }
+
 

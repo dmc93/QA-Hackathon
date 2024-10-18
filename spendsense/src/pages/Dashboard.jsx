@@ -2,15 +2,11 @@ import React, { useEffect, useState } from 'react';
 import BudgetOverview from '../components/BudgetOverview';
 import RecentTransactions from '../components/RecentTransactions';
 import SpendingChart from '../components/SpendingChart';
-import { fetchTransactions } from '../api'; // Import the fetch function
+import { fetchTransactions, fetchBudgets } from '../api'; // Import the fetch functions
 import { useAuth } from '../AuthContext'; // Import useAuth for user info
 
 const Dashboard = () => {
-  const [budgets, setBudgets] = useState([
-    { category: 'Groceries', spentAmount: 150, limit: 300 },
-    { category: 'Entertainment', spentAmount: 100, limit: 200 },
-  ]);
-
+  const [budgets, setBudgets] = useState([]); // Initialize budgets state
   const [transactions, setTransactions] = useState([]);
   const { userId } = useAuth(); // Access the user ID from context
 
@@ -24,8 +20,18 @@ const Dashboard = () => {
       }
     };
 
+    const loadBudgets = async () => {
+      try {
+        const data = await fetchBudgets(userId); // Fetch budgets for the logged-in user
+        setBudgets(data); // Update the state with fetched budgets
+      } catch (error) {
+        console.error('Failed to load budgets:', error);
+      }
+    };
+
     if (userId) {
       loadTransactions(); // Only load transactions if userId is available
+      loadBudgets(); // Only load budgets if userId is available
     }
   }, [userId]); // Run this effect when userId changes
 
@@ -44,7 +50,7 @@ const Dashboard = () => {
           <div className="card mb-4">
             <div className="card-body">
               <h4>Budget Overview</h4>
-              <BudgetOverview budgets={budgets} />
+              <BudgetOverview budgets={budgets} transactions={transactions} /> {/* Pass both budgets and transactions */}
             </div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-package com.hackathon.ledger_service.config;
+package com.hackathon.budget_service.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
